@@ -80,4 +80,14 @@ public class VirtualPetTest {
 
         assertEquals(initialBoredom - 10, boredomAfterPlaying);
     }
+
+    @Test
+    public void hungerShouldNotBecomeNegative() {
+        VirtualPet pet = new VirtualPet("Suzie");
+        for(int x = 0; x < 10; x++) {
+            pet.feed();
+        }
+
+        assertEquals(0, pet.getHunger());
+    }
 }

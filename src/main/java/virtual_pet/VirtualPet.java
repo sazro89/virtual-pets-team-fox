@@ -24,6 +24,9 @@ public class VirtualPet {
 
     public void feed() {
         hunger -= 10;
+        if (hunger < 0) {
+            hunger = 0;
+        }
     }
 
     public void play() {
