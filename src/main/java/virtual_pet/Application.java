@@ -13,9 +13,11 @@ public class Application {
 
         VirtualPet demoPet = new VirtualPet(name);
         System.out.println("Your fox's name is " + demoPet.getName() + ".");
+
         System.out.println("Your fox's current hunger value is " + demoPet.getHunger() + ".");
         demoPet.tick();
         System.out.println("Your fox's current hunger value is " + demoPet.getHunger() + ".");
+
         System.out.println("You should feed " + demoPet.getName() + ".");
 
     }

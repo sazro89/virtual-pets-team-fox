@@ -90,4 +90,14 @@ public class VirtualPetTest {
 
         assertEquals(0, pet.getHunger());
     }
+
+    @Test
+    public void boredomShouldNotBecomeNegative() {
+        VirtualPet pet = new VirtualPet("Suzie");
+        for(int x = 0; x < 10; x++) {
+            pet.play();
+        }
+
+        assertEquals(0, pet.getBoredom());
+    }
 }
