@@ -55,5 +55,12 @@ public class VirtualPetTest {
         int hungerAfterTick = pet.getHunger();
 
         assertEquals(initialHunger + 10, hungerAfterTick);
+
+
+    }
+
+    @Test
+    public void shouldFeed() {
+        VirtualPet pet = new VirtualPet("")
     }
 }
