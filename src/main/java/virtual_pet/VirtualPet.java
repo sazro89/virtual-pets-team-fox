@@ -28,7 +28,7 @@ public class VirtualPet {
     public int getHunger() { return hunger; }
     public int getThirst() { return thirst; }
     public int getBoredom() { return boredom; }
-    public void feed() {  }
+    public void feed() { hunger -= 10; }
 
 
 }
