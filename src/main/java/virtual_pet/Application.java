@@ -16,7 +16,6 @@ public class Application {
         System.out.println("Your fox's current hunger value is " + demoPet.getHunger() + ".");
         demoPet.tick();
         System.out.println("Your fox's current hunger value is " + demoPet.getHunger() + ".");
-//        demoPet.feed();
     }
 }
 
