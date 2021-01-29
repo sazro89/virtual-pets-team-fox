@@ -9,7 +9,7 @@ public class VirtualPet {
     private int boredom;
 
 
-    public VirtualPet(String petName) {
+    public VirtualPet(String petName) { //public VirtualPet is the constructor. We are requesting a String with the variable called petName
         this.name = petName.substring(0,1).toUpperCase() + petName.substring(1).toLowerCase();
         this.hunger = 10;
         this.thirst = 10;
@@ -25,10 +25,22 @@ public class VirtualPet {
     public String getName() {
         return name;
     }
+
     public int getHunger() { return hunger; }
+    public void feed() { return; }
+
+
+
     public int getThirst() { return thirst; }
+
+
+
+
     public int getBoredom() { return boredom; }
-    public void feed() {  }
+
+
+
+
 
 
 }

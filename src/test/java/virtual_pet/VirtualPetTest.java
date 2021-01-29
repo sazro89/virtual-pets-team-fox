@@ -13,9 +13,7 @@ public class VirtualPetTest {
     @Test
     public void petShouldHaveName() {
         VirtualPet underTest = new VirtualPet("Jeff");
-
         String expected = underTest.getName();
-
         assertEquals(expected, "Jeff");
     }
 
