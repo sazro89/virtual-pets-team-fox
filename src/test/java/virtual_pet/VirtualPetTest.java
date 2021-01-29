@@ -61,6 +61,10 @@ public class VirtualPetTest {
 
     @Test
     public void shouldFeed() {
-        VirtualPet pet = new VirtualPet("")
+        VirtualPet pet = new VirtualPet("");
+        int feedPet = pet.getHunger(); // makes pet object and gets hunger (hunger = 10)
+        pet.feed();
+        int fedPet = pet.getHunger();
+        assertEquals(feedPet - 10, fedPet);
     }
 }

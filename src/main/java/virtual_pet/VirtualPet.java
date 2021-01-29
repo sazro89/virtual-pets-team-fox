@@ -1,7 +1,5 @@
 package virtual_pet;
 
-import java.util.Locale;
-
 public class VirtualPet {
     private String name;
     private int hunger;
@@ -10,7 +8,7 @@ public class VirtualPet {
 
 
     public VirtualPet(String petName) {
-        this.name = petName.substring(0,1).toUpperCase() + petName.substring(1).toLowerCase();
+        this.name = petName;
         this.hunger = 10;
         this.thirst = 10;
         this.boredom = 10;
@@ -28,7 +26,12 @@ public class VirtualPet {
     public int getHunger() { return hunger; }
     public int getThirst() { return thirst; }
     public int getBoredom() { return boredom; }
-    public void feed() {  }
+
+    public String feed() {
+        hunger -= 10;
+        return name;
+
+    }
 
 
 }
