@@ -23,15 +23,28 @@ public class VirtualPet {
     public String getName() {
         return name;
     }
-    public int getHunger() { return hunger; }
-    public int getThirst() { return thirst; }
-    public int getBoredom() { return boredom; }
 
-    public String feed() {
-        hunger -= 10;
-        return name;
-
+    public int getHunger() {
+        return hunger;
     }
 
+    public int getThirst() {
+        return thirst;
+    }
 
+    public int getBoredom() {
+        return boredom;
+    }
+
+    public void feed() {
+        hunger -= 10;
+    }
+
+    public void play() {
+        boredom -= 10;
+    }
+
+    public void thirst() {
+        thirst -= 10;
+    }
 }

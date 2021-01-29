@@ -1,5 +1,6 @@
 package virtual_pet;
 
+import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,9 +39,7 @@ public class VirtualPetTest {
     @Test
     public void shouldHaveDefaultBoredom() {
         VirtualPet underTest = new VirtualPet("Steve");
-
         int expected = underTest.getBoredom();
-
         assertEquals(expected, 10);
     }
 
@@ -53,8 +52,6 @@ public class VirtualPetTest {
         int hungerAfterTick = pet.getHunger();
 
         assertEquals(initialHunger + 10, hungerAfterTick);
-
-
     }
 
     @Test
@@ -64,5 +61,22 @@ public class VirtualPetTest {
         pet.feed();
         int fedPet = pet.getHunger();
         assertEquals(feedPet - 10, fedPet);
+    }
+
+    @Test
+    public void shouldPlay(){
+        VirtualPet pet= new VirtualPet("");
+        int playPet = pet.getBoredom();
+        pet.play();
+        int tiredPet = pet.getBoredom();
+        assertEquals(playPet-10, tiredPet);
+    }
+
+    @Test
+    public void shouldDrink(){ VirtualPet pet= new VirtualPet("");
+        int pThirst = pet.getThirst();
+        pet.thirst();
+        int wateredPet = pet.getThirst();
+        assertEquals(pThirst-10, wateredPet);
     }
 }
