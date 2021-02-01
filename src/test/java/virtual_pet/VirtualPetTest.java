@@ -87,6 +87,21 @@ public class VirtualPetTest {
         }
         assertEquals(0, pet.getThirst());
     }
+    @Test
+    public void keepsBoredomFromNegative() {
+        VirtualPet pet = new VirtualPet("");
+        for(int x=0; x <5; x++) {
+            pet.play();
+        }
+        assertEquals(0, pet.getBoredom());
+    }
+    @Test
+    public void keepsHungerFromNegative() {
+        VirtualPet pet = new VirtualPet("");
+        for (int x = 0; x < 5; x++) {
+            pet.eat();
+        }
+        assertEquals(0, pet.getHunger());
 
-
+    }
 }

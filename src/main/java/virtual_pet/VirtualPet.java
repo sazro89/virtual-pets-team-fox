@@ -42,9 +42,15 @@ public class VirtualPet {
     // class pet behaviors
     public void eat() {
         hunger -= 10;
+        if(hunger<0){
+            hunger = 0;
+        }
     }
     public void play() {
         boredom -= 10;
+        if(boredom<0){
+            boredom = 0;
+        }
     }
     public void drink() {
         thirst -= 10;
