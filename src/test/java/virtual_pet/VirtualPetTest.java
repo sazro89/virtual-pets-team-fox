@@ -104,4 +104,5 @@ public class VirtualPetTest {
         assertEquals(0, pet.getHunger());
 
     }
+
 }
