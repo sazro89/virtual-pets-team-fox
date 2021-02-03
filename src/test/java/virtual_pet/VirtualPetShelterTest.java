@@ -61,7 +61,7 @@ public class VirtualPetShelterTest {
         // Arrangement
         VirtualPetShelter shelter = new VirtualPetShelter("");
         VirtualPet testPet = new VirtualPet("Etsuko");
-        int initialThirst = testPet.getThirst();
+        int initialThirst = testPet.getThirst(); //little thirsty
         shelter.takeInPet(testPet);
         // Action
         shelter.waterPet("Etsuko");
@@ -95,16 +95,64 @@ public class VirtualPetShelterTest {
                     //list ^ of pets  // ^ for each value call it pet  // ^ making sure each pets hunger == 0
     }
     @Test
-    public void playersShouldBeAbleToInteractWithManyPets() {
+    public void playersShouldBeAbleToWaterManyPets() {
         //arrangement
         VirtualPetShelter shelter = new VirtualPetShelter("");
         for (int x = 0; x < 1000; x++) {
             shelter.takeInPet(new VirtualPet(String.valueOf(x)));
         }
+        //action
+
+        shelter.waterAllPets();
+
+        // ASSERTION
+        Map<String, VirtualPet> testMap = shelter.getManyPetMap();
+        assertThat(testMap.values()).allMatch(pet -> pet.getThirst() == 0);
     }
     @Test
-    public void playersShouldBeAbleToCheckStatus() {
+    public void playerShouldBeAbleToPlayWithManyPets() {
+    VirtualPetShelter shelter = new VirtualPetShelter("");
+        for (int x = 0; x < 1000; x++) {
+            shelter.takeInPet(new VirtualPet(String.valueOf(x)));
+        }
+        //action
+        shelter.playWithAllPets();
+
+        Map<String, VirtualPet> testMap = shelter.getManyPetMap();
+        assertThat(testMap.values()).allMatch(pet -> pet.getBoredom() == 0);
+
+
     }
+@Test
+    public void shelterShouldDumpPetInfo() {
+        VirtualPetShelter petShelter = new VirtualPetShelter("");
+        VirtualPet petOne = new VirtualPet("Tim");
+        VirtualPet petTwo = new VirtualPet("Ryan");
+        VirtualPet petThree = new VirtualPet("Sam");
+        petShelter.takeInPet(petOne);
+        petShelter.takeInPet(petTwo);
+        petShelter.takeInPet(petThree);
+        String stringOutput = petShelter.dumpPetInfo();
+    System.out.println(stringOutput);
+    String testOut =    "| Name       | Boredom | Hunger | Thirst |\n" +
+                        "| ---------- | ------- | ------ | ------ |\n" +
+                        "| Ryan       | 10      | 10     | 10     |\n" +
+                        "| Tim        | 10      | 10     | 10     |\n" +
+                        "| Sam        | 10      | 10     | 10     |\n";
+    assertEquals(testOut, stringOutput);
+
+
+
+
+
+    }
+
+
+
+
+
+
+
 
 }
 
