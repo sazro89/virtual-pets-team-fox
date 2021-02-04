@@ -1,5 +1,6 @@
 package virtual_pet;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -34,11 +35,15 @@ public class VirtualPetShelter {
     }
 
     public void feedPet(String name) {
-        petMap.get(name).eat();
+        if (petMap.get(name) instanceof OrganicPet) {
+            ((OrganicPet)petMap.get(name)).eat();
+        }
     }
 
     public void waterPet(String name) {
-        petMap.get(name).drink();
+        if (petMap.get(name) instanceof OrganicPet) {
+            ((OrganicPet)petMap.get(name)).drink();
+        }
     }
 
     public void playWithPet(String name) {
@@ -67,13 +72,36 @@ public class VirtualPetShelter {
     }
 
     public String printPetInfo() {
-        String output = "| Name       | Boredom | Hunger | Thirst |\n| ---------- | ------- | ------ | ------ |\n";
+        String output = "| Name       | Type | Boredom | Hunger | Thirst | Oil |\n| ---------- | ---- | ------- | ------ | ------ | --- |\n";
         Set<String> petNames = petMap.keySet();
         for (String name : petNames) {
             VirtualPet pet = getPetInfo(name);
-            output += String.format("| %-10s | %-7d | %-6d | %-6d |\n", pet.getName(), pet.getBoredom(), pet.getHunger(), pet.getThirst());
+            if (pet instanceof OrganicPet) {
+                output += String.format("| %-10s | %-4s | %-7d | %-6d | %-6d | %-3s |\n",
+                        pet.getName(), "Org" ,pet.getBoredom(), ((OrganicPet) pet).getHunger(), ((OrganicPet) pet).getThirst(), "N/A");
+            } else if (pet instanceof RoboticPet) {
+                output += String.format("| %-10s | %-4s | %-7d | %-6s | %-6s | %-3d |\n",
+                        pet.getName(), "Robo" ,pet.getBoredom(), "N/A", "N/A", ((RoboticPet) pet).getOilMaintenanceLevel());
+            }
         }
         return output;
+    }
+
+    public String printPetNames() {
+        String out = "";
+        Set<String> petNames = petMap.keySet();
+        for (String name : petNames) {
+            out += name + "\n";
+        }
+
+        return out;
+    }
+
+    public void tickAllPets() {
+        Collection<VirtualPet> pets = petMap.values();
+        for (VirtualPet pet : pets) {
+            pet.tick();
+        }
     }
 
     //----------------------------------------
@@ -83,4 +111,5 @@ public class VirtualPetShelter {
     public Map<String, VirtualPet> getPetMap() {
         return petMap;
     }
+
 }

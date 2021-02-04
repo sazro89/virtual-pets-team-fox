@@ -24,14 +24,6 @@ public abstract class VirtualPet {
 
     public abstract void tick();
 
-    public abstract void eat();
-
-    public abstract void drink();
-
-    public abstract int getHunger();
-
-    public abstract int getThirst();
-
     //----------------------------------------
     // CLASS METHODS
     //----------------------------------------

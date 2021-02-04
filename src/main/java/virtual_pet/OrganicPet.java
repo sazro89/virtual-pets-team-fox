@@ -6,8 +6,11 @@ public class OrganicPet extends VirtualPet {
     // INSTANCE VARIABLES
     //----------------------------------------
 
-    private int hunger;
-    private int thirst;
+    protected int hunger;
+    protected int thirst;
+    protected int dirtiness;
+    protected boolean wasWalked;
+
 
     //----------------------------------------
     // CONSTRUCTOR
@@ -17,6 +20,8 @@ public class OrganicPet extends VirtualPet {
         super(petName);
         this.hunger = 10;
         this.thirst = 10;
+        this.dirtiness = 10;
+        this.wasWalked = false;
     }
 
     //----------------------------------------
@@ -27,6 +32,13 @@ public class OrganicPet extends VirtualPet {
         hunger += 10; // this is equivalent to hunger = hunger + 10;
         thirst += 10;
         boredom += 10;
+
+        if (wasWalked) {
+            dirtiness += 5;
+            wasWalked = false;
+        } else {
+            dirtiness += 10;
+        }
     }
 
     public void eat() {

@@ -23,8 +23,8 @@ public class VirtualPetTest {
     @Test
     public void shouldHaveDefaultHunger() {
         // ARRANGEMENT & ACTION
-        VirtualPet underTest = new OrganicPet("Steve");
-        int expected = underTest.getHunger();
+        VirtualPet pet = new OrganicPet("Steve");
+        int expected = ((OrganicPet) pet).getHunger();
 
         // ASSERTION
         assertEquals(expected, 10);
@@ -33,8 +33,8 @@ public class VirtualPetTest {
     @Test
     public void shouldHaveDefaultThirst() {
         // ARRANGEMENT & ACTION
-        VirtualPet underTest = new OrganicPet("Steve");
-        int expected = underTest.getThirst();
+        VirtualPet pet = new OrganicPet("Steve");
+        int expected = ((OrganicPet) pet).getThirst();
 
         // ASSERTION
         assertEquals(expected, 10);
@@ -56,9 +56,9 @@ public class VirtualPetTest {
         VirtualPet pet = new OrganicPet("Kendrick");
 
         // ACTION
-        int initialHunger = pet.getHunger();
+        int initialHunger = ((OrganicPet) pet).getHunger();
         pet.tick();
-        int hungerAfterTick = pet.getHunger();
+        int hungerAfterTick = ((OrganicPet) pet).getHunger();
 
         // ASSERTION
         assertEquals(initialHunger + 10, hungerAfterTick);
@@ -70,9 +70,9 @@ public class VirtualPetTest {
         VirtualPet pet = new OrganicPet("");
 
         // ACTION
-        int feedPet = pet.getHunger(); // makes pet object and gets hunger (hunger = 10)
-        pet.eat();
-        int fedPet = pet.getHunger();
+        int feedPet = ((OrganicPet) pet).getHunger(); // makes pet object and gets hunger (hunger = 10)
+        ((OrganicPet) pet).eat();
+        int fedPet = ((OrganicPet) pet).getHunger();
 
         // ASSERTION
         assertEquals(feedPet - 10, fedPet);
@@ -98,9 +98,9 @@ public class VirtualPetTest {
         VirtualPet pet = new OrganicPet("");
 
         // ACTION
-        int petThirst = pet.getThirst();
-        pet.drink();
-        int wateredPet = pet.getThirst();
+        int petThirst = ((OrganicPet) pet).getThirst();
+        ((OrganicPet) pet).drink();
+        int wateredPet = ((OrganicPet) pet).getThirst();
 
         // ASSERTION
         assertEquals(petThirst - 10, wateredPet);
@@ -113,11 +113,11 @@ public class VirtualPetTest {
 
         // ACTION
         for (int x = 0; x < 5; x++) {
-            pet.drink();
+            ((OrganicPet) pet).drink();
         }
 
         // ASSERTION
-        assertEquals(0, pet.getThirst());
+        assertEquals(0, ((OrganicPet) pet).getThirst());
     }
 
     @Test
@@ -141,10 +141,10 @@ public class VirtualPetTest {
 
         // ACTION
         for (int x = 0; x < 5; x++) {
-            pet.eat();
+            ((OrganicPet) pet).eat();
         }
 
         // ASSERTION
-        assertEquals(0, pet.getHunger());
+        assertEquals(0, ((OrganicPet) pet).getHunger());
     }
 }

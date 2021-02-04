@@ -55,13 +55,13 @@ public class VirtualPetShelterTest {
         // ARRANGEMENT
         VirtualPetShelter shelter = new VirtualPetShelter();
         VirtualPet testPet = new OrganicPet("Etsuko");
-        int initialHunger = testPet.getHunger();
+        int initialHunger = ((OrganicPet)testPet).getHunger();
         shelter.takeInPet(testPet);
         // ACTION
         shelter.feedPet("Etsuko");
 
         // ASSERTION
-        assertNotEquals(shelter.getPetInfo("Etsuko").getHunger(), initialHunger);
+        assertNotEquals(((OrganicPet)shelter.getPetInfo("Etsuko")).getHunger(), initialHunger);
     }
 
     @Test
@@ -69,14 +69,14 @@ public class VirtualPetShelterTest {
         // ARRANGEMENT
         VirtualPetShelter shelter = new VirtualPetShelter();
         VirtualPet testPet = new OrganicPet("Etsuko");
-        int initialThirst = testPet.getThirst(); //little thirsty
+        int initialThirst = ((OrganicPet)testPet).getThirst(); //little thirsty
         shelter.takeInPet(testPet);
 
         // ACTION
         shelter.waterPet("Etsuko");
 
         // ASSERTION
-        assertNotEquals(shelter.getPetInfo("Etsuko").getThirst(), initialThirst);
+        assertNotEquals(((OrganicPet)shelter.getPetInfo("Etsuko")).getThirst(), initialThirst);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    public void shouldBeABleToFeedAllPets() {
+    public void shouldBeABleToFeedAllOrganicPets() {
         // ARRANGEMENT
         VirtualPetShelter shelter = new VirtualPetShelter();
         for (int x = 0; x < 1000; x++) {
@@ -106,12 +106,12 @@ public class VirtualPetShelterTest {
         shelter.feedAllPets();
 
         // ASSERTION
-        assertThat(shelter.getPetMap().values()).allMatch(pet -> pet.getHunger() == 0);
+        assertThat(shelter.getPetMap().values()).allMatch(pet -> ((OrganicPet) pet).getHunger() == 0);
         //list ^ of pets  // ^ for each value call it pet  // ^ making sure each pets hunger == 0
     }
 
     @Test
-    public void playersShouldBeAbleToWaterManyPets() {
+    public void playersShouldBeAbleToWaterManyOrganicPets() {
         // ARRANGEMENT
         VirtualPetShelter shelter = new VirtualPetShelter();
         for (int x = 0; x < 1000; x++) {
@@ -122,7 +122,7 @@ public class VirtualPetShelterTest {
         shelter.waterAllPets();
 
         // ASSERTION
-        assertThat(shelter.getPetMap().values()).allMatch(pet -> pet.getThirst() == 0);
+        assertThat(shelter.getPetMap().values()).allMatch(pet -> ((OrganicPet) pet).getThirst() == 0);
     }
 
     @Test
@@ -145,7 +145,7 @@ public class VirtualPetShelterTest {
         // ARRANGEMENT
         VirtualPetShelter petShelter = new VirtualPetShelter();
         VirtualPet petOne = new OrganicPet("Tim");
-        VirtualPet petTwo = new OrganicPet("Ryan");
+        VirtualPet petTwo = new RoboticPet("Ryan");
         VirtualPet petThree = new OrganicPet("Sam");
         petShelter.takeInPet(petOne);
         petShelter.takeInPet(petTwo);
@@ -153,11 +153,11 @@ public class VirtualPetShelterTest {
 
         // ACTION
         String stringOutput = petShelter.printPetInfo();
-        String testOut = "| Name       | Boredom | Hunger | Thirst |\n" +
-                "| ---------- | ------- | ------ | ------ |\n" +
-                "| Ryan       | 10      | 10     | 10     |\n" +
-                "| Tim        | 10      | 10     | 10     |\n" +
-                "| Sam        | 10      | 10     | 10     |\n";
+        String testOut = "| Name       | Type | Boredom | Hunger | Thirst | Oil |\n" +
+                         "| ---------- | ---- | ------- | ------ | ------ | --- |\n" +
+                         "| Ryan       | Robo | 10      | N/A    | N/A    | 10  |\n" +
+                         "| Tim        | Org  | 10      | 10     | 10     | N/A |\n" +
+                         "| Sam        | Org  | 10      | 10     | 10     | N/A |\n";
 
         // ASSERTION
         assertEquals(testOut, stringOutput);
