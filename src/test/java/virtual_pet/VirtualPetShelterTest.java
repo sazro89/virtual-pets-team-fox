@@ -2,12 +2,9 @@ package virtual_pet;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Map;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 
 public class VirtualPetShelterTest {
     @Test
@@ -165,15 +162,4 @@ public class VirtualPetShelterTest {
         // ASSERTION
         assertEquals(testOut, stringOutput);
     }
-
-
 }
-
-
-
-
-
-
-
-
-
