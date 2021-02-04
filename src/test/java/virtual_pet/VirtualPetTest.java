@@ -7,19 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class VirtualPetTest {
     @Test
     public void shouldBeAbleToCreatePet() {
-        VirtualPet pet = new VirtualPet("Mittens");
+        VirtualPet pet = new OrganicPet("Mittens");
     }
 
     @Test
     public void petShouldHaveName() {
-        VirtualPet underTest = new VirtualPet("Jeff");
+        VirtualPet underTest = new OrganicPet("Jeff");
         String expected = underTest.getName();
         assertEquals(expected, "Jeff");
     }
 
     @Test
     public void shouldHaveDefaultHunger() {
-        VirtualPet underTest = new VirtualPet("Steve");
+        VirtualPet underTest = new OrganicPet("Steve");
 
         int expected = underTest.getHunger();
 
@@ -28,7 +28,7 @@ public class VirtualPetTest {
 
     @Test
     public void shouldHaveDefaultThirst() {
-        VirtualPet underTest = new VirtualPet("Steve");
+        VirtualPet underTest = new OrganicPet("Steve");
 
         int expected = underTest.getThirst();
 
@@ -37,14 +37,14 @@ public class VirtualPetTest {
 
     @Test
     public void shouldHaveDefaultBoredom() {
-        VirtualPet underTest = new VirtualPet("Steve");
+        VirtualPet underTest = new OrganicPet("Steve");
         int expected = underTest.getBoredom();
         assertEquals(expected, 10);
     }
 
     @Test
     public void shouldTick() {
-        VirtualPet pet = new VirtualPet("Kendrick");
+        VirtualPet pet = new OrganicPet("Kendrick");
 
         int initialHunger = pet.getHunger();
         pet.tick();
@@ -55,7 +55,7 @@ public class VirtualPetTest {
 
     @Test
     public void shouldFeed() {
-        VirtualPet pet = new VirtualPet("");
+        VirtualPet pet = new OrganicPet("");
         int feedPet = pet.getHunger(); // makes pet object and gets hunger (hunger = 10)
         pet.eat();
         int fedPet = pet.getHunger();
@@ -64,7 +64,7 @@ public class VirtualPetTest {
 
     @Test
     public void shouldPlay(){
-        VirtualPet pet= new VirtualPet("");
+        VirtualPet pet= new OrganicPet("");
         int playPet = pet.getBoredom();
         pet.play();
         int tiredPet = pet.getBoredom();
@@ -73,7 +73,7 @@ public class VirtualPetTest {
 
     @Test
     public void shouldDrink(){
-        VirtualPet pet= new VirtualPet("");
+        VirtualPet pet= new OrganicPet("");
         int petThirst = pet.getThirst();
         pet.drink();
         int wateredPet = pet.getThirst();
@@ -81,7 +81,7 @@ public class VirtualPetTest {
     }
     @Test
     public void keepsThirstFromNegative() {
-        VirtualPet pet = new VirtualPet("");
+        VirtualPet pet = new OrganicPet("");
         for(int x = 0; x <5; x++) {
             pet.drink();
         }
@@ -89,7 +89,7 @@ public class VirtualPetTest {
     }
     @Test
     public void keepsBoredomFromNegative() {
-        VirtualPet pet = new VirtualPet("");
+        VirtualPet pet = new OrganicPet("");
         for(int x=0; x <5; x++) {
             pet.play();
         }
@@ -97,7 +97,7 @@ public class VirtualPetTest {
     }
     @Test
     public void keepsHungerFromNegative() {
-        VirtualPet pet = new VirtualPet("");
+        VirtualPet pet = new OrganicPet("");
         for (int x = 0; x < 5; x++) {
             pet.eat();
         }

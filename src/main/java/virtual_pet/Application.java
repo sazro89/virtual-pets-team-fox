@@ -11,7 +11,7 @@ public class Application {
         System.out.println("What would you like your fox's name to be?");
         name = inputScanner.nextLine();
 
-        VirtualPet demoPet = new VirtualPet(name);
+        VirtualPet demoPet = new OrganicPet(name);
         System.out.println("Your fox's name is " + demoPet.getName() + ".");
         System.out.println("Your fox's current hunger value is " + demoPet.getHunger() + ".");
         demoPet.tick();
