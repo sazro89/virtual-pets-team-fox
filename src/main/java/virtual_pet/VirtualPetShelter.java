@@ -79,6 +79,7 @@ public class VirtualPetShelter {
     //----------------------------------------
     // GETTER METHODS
     //----------------------------------------
+
     public Map<String, VirtualPet> getPetMap() {
         return petMap;
     }

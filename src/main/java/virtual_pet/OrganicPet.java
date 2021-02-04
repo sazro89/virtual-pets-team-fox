@@ -1,15 +1,18 @@
 package virtual_pet;
 
 public class OrganicPet extends VirtualPet {
+
     //----------------------------------------
     // INSTANCE VARIABLES
     //----------------------------------------
+
     private int hunger;
     private int thirst;
 
     //----------------------------------------
     // CONSTRUCTOR
     //----------------------------------------
+
     public OrganicPet(String petName) {
         super(petName);
         this.hunger = 10;
@@ -43,6 +46,7 @@ public class OrganicPet extends VirtualPet {
     //----------------------------------------
     // GETTER METHODS
     //----------------------------------------
+
     public int getHunger() {
         return hunger;
     }
