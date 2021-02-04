@@ -1,5 +1,5 @@
 plugins {
-	id 'java'
+    id 'java'
 }
 
 group = 'org.wcci'
@@ -7,16 +7,16 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.+'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.+'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.+'
-	testImplementation 'org.assertj:assertj-core:3.+'
-	testImplementation 'org.mockito:mockito-core:2.+'
+    testImplementation 'org.assertj:assertj-core:3.+'
+    testImplementation 'org.mockito:mockito-core:2.+'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

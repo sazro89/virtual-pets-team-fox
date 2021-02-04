@@ -2,15 +2,20 @@
 
 ## Virtual Pets Amok
 
-Do you remember Cyberpet? Tamagotchi? Digimon? Petz? Virtual pets like these were born in 1996. With your help, they will be reborn.
+Do you remember Cyberpet? Tamagotchi? Digimon? Petz? Virtual pets like these were born in 1996. With your help, they
+will be reborn.
 
-Virtual Toys, Inc. wants you to build the next iteration of virtual pets to market to adults who enjoy updated versions of the toys and games they played in their youth. This game will be like the virtual pets of 1996...but so much more. It’s Virtual Pets Amok!
+Virtual Toys, Inc. wants you to build the next iteration of virtual pets to market to adults who enjoy updated versions
+of the toys and games they played in their youth. This game will be like the virtual pets of 1996...but so much more.
+It’s Virtual Pets Amok!
 
-Our pets are organic or robotic! They are housed in a shelter and cared for by you. They have unique personalities. They can be adopted.
+Our pets are organic or robotic! They are housed in a shelter and cared for by you. They have unique personalities. They
+can be adopted.
 
 Virtual Toys, Inc. requires:
 
-- Development of a console application by a team that practices agile methodology, utilizes test driven design, and values clean code
+- Development of a console application by a team that practices agile methodology, utilizes test driven design, and
+  values clean code
 - Appropriate use of Git and access to your application on GitHub
 - Useful player instructions in the form of a README.md file
 - An interactive user interface
@@ -31,7 +36,9 @@ Virtual Pets, Inc. would also like the following, although it is not required:
 - Increase the number of statuses, activities, pets, etc.
 
 ## Grading Guidelines
+
 A word about our grading, we will be evaluating your projects on five different aspects of software development:
+
 - Working Software
 - Test Driven Development
 - Clean Code
