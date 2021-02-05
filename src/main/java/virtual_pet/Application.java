@@ -57,7 +57,7 @@ public class Application {
                 case "3": {
                     String playChoice;
                     System.out.println("Type the name of the pet you want to interact with");
-                    System.out.println(shelter.printPetNames() + "All" + "\n");
+                    System.out.println(shelter.printPetNames() + "- All" + "\n");
                     System.out.println("Cancel");
                     String name = inputScanner.nextLine();
 
