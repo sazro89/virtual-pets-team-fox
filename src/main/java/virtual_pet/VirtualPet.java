@@ -8,6 +8,7 @@ public abstract class VirtualPet {
 
     protected String name;
     protected int boredom;
+    protected int cleanliness;
 
     //----------------------------------------
     // CONSTRUCTOR
@@ -16,6 +17,7 @@ public abstract class VirtualPet {
     public VirtualPet(String petName) {
         this.name = petName;
         this.boredom = 10;
+        this.cleanliness = 10;
     }
 
     //----------------------------------------
@@ -23,6 +25,7 @@ public abstract class VirtualPet {
     //----------------------------------------
 
     public abstract void tick();
+    public abstract String getType();
 
     //----------------------------------------
     // CLASS METHODS
@@ -33,6 +36,10 @@ public abstract class VirtualPet {
         if (boredom < 0) {
             boredom = 0;
         }
+    }
+
+    public void clean() {
+        cleanliness = 0;
     }
 
     //----------------------------------------
@@ -46,4 +53,10 @@ public abstract class VirtualPet {
     public int getBoredom() {
         return boredom;
     }
+
+    public int getCleanliness() {
+        return cleanliness;
+    }
+
+    public abstract boolean getWasWalked();
 }

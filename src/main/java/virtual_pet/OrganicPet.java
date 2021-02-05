@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class OrganicPet extends VirtualPet {
+public abstract class OrganicPet extends VirtualPet {
 
     //----------------------------------------
     // INSTANCE VARIABLES
@@ -8,9 +8,7 @@ public class OrganicPet extends VirtualPet {
 
     protected int hunger;
     protected int thirst;
-    protected int dirtiness;
     protected boolean wasWalked;
-
 
     //----------------------------------------
     // CONSTRUCTOR
@@ -20,9 +18,15 @@ public class OrganicPet extends VirtualPet {
         super(petName);
         this.hunger = 10;
         this.thirst = 10;
-        this.dirtiness = 10;
         this.wasWalked = false;
     }
+
+    //----------------------------------------
+    // ABSTRACT METHODS
+    //----------------------------------------
+
+    public abstract String getType();
+    public abstract boolean getWasWalked();
 
     //----------------------------------------
     // CLASS METHODS
@@ -34,10 +38,10 @@ public class OrganicPet extends VirtualPet {
         boredom += 10;
 
         if (wasWalked) {
-            dirtiness += 5;
+            cleanliness += 5;
             wasWalked = false;
         } else {
-            dirtiness += 10;
+            cleanliness += 10;
         }
     }
 
