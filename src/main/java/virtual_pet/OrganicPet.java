@@ -26,6 +26,7 @@ public abstract class OrganicPet extends VirtualPet {
     //----------------------------------------
 
     public abstract String getType();
+
     public abstract boolean getWasWalked();
 
     //----------------------------------------

@@ -25,6 +25,7 @@ public abstract class VirtualPet {
     //----------------------------------------
 
     public abstract void tick();
+
     public abstract String getType();
 
     //----------------------------------------

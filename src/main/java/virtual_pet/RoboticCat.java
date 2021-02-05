@@ -11,7 +11,7 @@ public class RoboticCat extends RoboticPet {
     }
 
     //----------------------------------------
-    // CLASS METHODS
+    // GETTER METHODS
     //----------------------------------------
 
     @Override

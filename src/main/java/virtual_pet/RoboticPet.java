@@ -24,6 +24,7 @@ public abstract class RoboticPet extends VirtualPet {
     //----------------------------------------
 
     public abstract String getType();
+
     public abstract boolean getWasWalked();
 
     //----------------------------------------

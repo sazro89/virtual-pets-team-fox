@@ -1,6 +1,6 @@
 package virtual_pet;
 
-public class OrganicCat extends OrganicPet{
+public class OrganicCat extends OrganicPet {
 
     //----------------------------------------
     // CONSTRUCTOR

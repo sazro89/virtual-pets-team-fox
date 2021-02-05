@@ -33,8 +33,9 @@ public class VirtualPetShelterTest {
         VirtualPet ryanPet = new OrganicCat("Ryan");
 
         // ACTION
-        newShelter.takeInPet(paulPet);
-        newShelter.takeInPet(ryanPet);
+        newShelter.takeInPets(paulPet, ryanPet);
+
+        // ASSERTION
         assertEquals(newShelter.getPetInfo("Paul"), paulPet);
     }
 
@@ -47,6 +48,8 @@ public class VirtualPetShelterTest {
         for (int x = 0; x < 1000; x++) {
             shelter.takeInPet(new OrganicDog(String.valueOf(x)));
         }
+
+        // ASSERTION
         assertEquals(1000, shelter.getPetMap().size());
     }
 
@@ -61,7 +64,7 @@ public class VirtualPetShelterTest {
         shelter.feedPet("Etsuko");
 
         // ASSERTION
-        assertNotEquals(((OrganicPet)shelter.getPetInfo("Etsuko")).getHunger(), initialHunger);
+        assertNotEquals(((OrganicPet) shelter.getPetInfo("Etsuko")).getHunger(), initialHunger);
     }
 
     @Test
@@ -76,7 +79,7 @@ public class VirtualPetShelterTest {
         shelter.waterPet("Etsuko");
 
         // ASSERTION
-        assertNotEquals(((OrganicPet)shelter.getPetInfo("Etsuko")).getThirst(), initialThirst);
+        assertNotEquals(((OrganicPet) shelter.getPetInfo("Etsuko")).getThirst(), initialThirst);
     }
 
     @Test
@@ -229,15 +232,15 @@ public class VirtualPetShelterTest {
         VirtualPetShelter petShelter = new VirtualPetShelter();
         VirtualPet pet = new RoboticCat("Nami");
         petShelter.takeInPet(pet);
-        
+
         String expectedOutput = "| Name       | Type        | Boredom | Cleanliness | Hunger | Thirst | Oil |\n" +
                 "| ---------- | ----------- | ------- | ----------- | ------ | ------ | --- |\n" +
                 "| Nami       | Robotic Cat | 10      | 10          | N/A    | N/A    | 10  |\n";
         String actualOutput = petShelter.printOnePetsInfo("Nami");
-        
+
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }
-    
+
     @Test
     public void shelterShouldPrintAllPetsInfo() {
         // ARRANGEMENT
@@ -245,22 +248,20 @@ public class VirtualPetShelterTest {
         VirtualPet petOne = new OrganicCat("Tim");
         VirtualPet petTwo = new RoboticDog("Ryan");
         VirtualPet petThree = new OrganicDog("Sam");
-        petShelter.takeInPet(petOne);
-        petShelter.takeInPet(petTwo);
-        petShelter.takeInPet(petThree);
+        petShelter.takeInPets(petOne, petTwo, petThree);
 
         // ACTION
         String actualOutput = petShelter.printAllPetsInfo();
         String sampleOutput = "| Name       | Type        | Boredom | Cleanliness | Hunger | Thirst | Oil |\n" +
-                         "| ---------- | ----------- | ------- | ----------- | ------ | ------ | --- |\n" +
-                         "| Ryan       | Robotic Dog | 10      | 10          | N/A    | N/A    | 10  |\n" +
-                         "| Tim        | Organic Cat | 10      | 10          | 10     | 10     | N/A |\n" +
-                         "| Sam        | Organic Dog | 10      | 10          | 10     | 10     | N/A |\n";
+                "| ---------- | ----------- | ------- | ----------- | ------ | ------ | --- |\n" +
+                "| Ryan       | Robotic Dog | 10      | 10          | N/A    | N/A    | 10  |\n" +
+                "| Tim        | Organic Cat | 10      | 10          | 10     | 10     | N/A |\n" +
+                "| Sam        | Organic Dog | 10      | 10          | 10     | 10     | N/A |\n";
 
         // ASSERTION
         assertThat(actualOutput).isEqualTo(sampleOutput);
     }
-    
+
     @Test
     public void shouldPrintRelevantPetMethodsRoboticDog() {
         VirtualPetShelter petShelter = new VirtualPetShelter();

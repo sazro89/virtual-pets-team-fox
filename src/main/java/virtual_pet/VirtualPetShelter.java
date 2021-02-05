@@ -26,8 +26,8 @@ public class VirtualPetShelter {
     // CLASS METHODS
     //----------------------------------------
 
-    public void takeInPet(VirtualPet takesInPet) {
-        petMap.put(takesInPet.getName(), takesInPet);
+    public void takeInPet(VirtualPet pet) {
+        petMap.put(pet.getName(), pet);
     }
 
     public void feedPet(String name) {
@@ -104,6 +104,17 @@ public class VirtualPetShelter {
         }
     }
 
+    public void tickAllPets() {
+        Collection<VirtualPet> pets = petMap.values();
+        for (VirtualPet pet : pets) {
+            pet.tick();
+        }
+    }
+
+    //----------------------------------------
+    // OUTPUT METHODS
+    //----------------------------------------
+
     private String printHeader() {
         String output = "| Name       | Type        | Boredom | Cleanliness | Hunger | Thirst | Oil |\n" +
                 "| ---------- | ----------- | ------- | ----------- | ------ | ------ | --- |\n";
@@ -148,13 +159,6 @@ public class VirtualPetShelter {
         return out;
     }
 
-    public void tickAllPets() {
-        Collection<VirtualPet> pets = petMap.values();
-        for (VirtualPet pet : pets) {
-            pet.tick();
-        }
-    }
-
     //----------------------------------------
     // GETTER METHODS
     //----------------------------------------
@@ -184,5 +188,15 @@ public class VirtualPetShelter {
             out += "- Walk\n";
         }
         return out;
+    }
+
+    //----------------------------------------
+    // HELPER FUNCTIONS
+    //----------------------------------------
+
+    public void takeInPets(VirtualPet ...pets) {
+        for (VirtualPet pet : pets) {
+            petMap.put(pet.getName(), pet);
+        }
     }
 }

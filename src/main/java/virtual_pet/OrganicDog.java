@@ -23,6 +23,10 @@ public class OrganicDog extends OrganicPet implements Walkable {
         wasWalked = true;
     }
 
+    //----------------------------------------
+    // GETTER METHODS
+    //----------------------------------------
+
     @Override
     public String getType() {
         return "Organic Dog";
