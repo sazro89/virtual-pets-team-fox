@@ -20,8 +20,8 @@ class RoboticDogTest {
 
     @Test
     public void shouldHaveDefaultOilMaintenance() {
-        VirtualPet pet = new RoboticDog("Agostino");
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticDog("Agostino");
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(10);
     }
@@ -44,18 +44,18 @@ class RoboticDogTest {
 
     @Test
     public void shouldTick() {
-        VirtualPet pet = new RoboticDog("Daniel");
+        RoboticPet pet = new RoboticDog("Daniel");
         pet.tick();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(17);
     }
 
     @Test
     public void shouldMaintenance() {
-        VirtualPet pet = new RoboticDog("Derryl");
-        ((RoboticPet) pet).maintenance();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticDog("Derryl");
+        pet.maintenance();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(0);
     }
@@ -80,8 +80,8 @@ class RoboticDogTest {
 
     @Test
     public void shouldWalk() {
-        VirtualPet pet = new RoboticDog("Wenceslaus");
-        ((RoboticDog) pet).walk();
+        RoboticDog pet = new RoboticDog("Wenceslaus");
+        pet.walk();
         int actualBoredom = pet.getBoredom();
         boolean actualWasWalked = pet.getWasWalked();
 
@@ -91,11 +91,11 @@ class RoboticDogTest {
 
     @Test
     public void keepOilMaintenanceLevelFromNegative() {
-        VirtualPet pet = new RoboticDog("Sjors");
-        ((RoboticPet) pet).maintenance();
-        ((RoboticPet) pet).maintenance();
-        ((RoboticPet) pet).maintenance();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticDog("Sjors");
+        pet.maintenance();
+        pet.maintenance();
+        pet.maintenance();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(0);
     }
@@ -113,8 +113,8 @@ class RoboticDogTest {
 
     @Test
     public void keepBoredomFromNegativeByWalking() {
-        VirtualPet pet = new RoboticDog("Vivek");
-        ((RoboticDog) pet).walk();
+        RoboticDog pet = new RoboticDog("Vivek");
+        pet.walk();
         int actualBoredom = pet.getBoredom();
 
         assertThat(actualBoredom).isEqualTo(0);

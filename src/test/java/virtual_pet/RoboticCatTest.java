@@ -20,8 +20,8 @@ class RoboticCatTest {
 
     @Test
     public void shouldHaveDefaultOilMaintenance() {
-        VirtualPet pet = new RoboticCat("Agostino");
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticCat("Agostino");
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(10);
     }
@@ -44,18 +44,18 @@ class RoboticCatTest {
 
     @Test
     public void shouldTick() {
-        VirtualPet pet = new RoboticCat("Daniel");
+        RoboticPet pet = new RoboticCat("Daniel");
         pet.tick();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(17);
     }
 
     @Test
     public void shouldMaintenance() {
-        VirtualPet pet = new RoboticCat("Derryl");
-        ((RoboticPet) pet).maintenance();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticCat("Derryl");
+        pet.maintenance();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(0);
     }
@@ -80,11 +80,11 @@ class RoboticCatTest {
 
     @Test
     public void keepOilMaintenanceLevelFromNegative() {
-        VirtualPet pet = new RoboticCat("Sjors");
-        ((RoboticPet) pet).maintenance();
-        ((RoboticPet) pet).maintenance();
-        ((RoboticPet) pet).maintenance();
-        int actualOilMaintenanceLevel = ((RoboticPet) pet).getOilMaintenanceLevel();
+        RoboticPet pet = new RoboticCat("Sjors");
+        pet.maintenance();
+        pet.maintenance();
+        pet.maintenance();
+        int actualOilMaintenanceLevel = pet.getOilMaintenanceLevel();
 
         assertThat(actualOilMaintenanceLevel).isEqualTo(0);
     }

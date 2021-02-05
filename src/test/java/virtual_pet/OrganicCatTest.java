@@ -20,16 +20,16 @@ class OrganicCatTest {
 
     @Test
     public void shouldHaveDefaultHunger() {
-        VirtualPet pet = new OrganicCat("Shaun");
-        int actualHunger = ((OrganicPet) pet).getHunger();
+        OrganicPet pet = new OrganicCat("Shaun");
+        int actualHunger = pet.getHunger();
 
         assertThat(actualHunger).isEqualTo(10);
     }
 
     @Test
     public void shouldHaveDefaultThirst() {
-        VirtualPet pet = new OrganicCat("Oinone");
-        int actualThirst = ((OrganicPet) pet).getThirst();
+        OrganicPet pet = new OrganicCat("Oinone");
+        int actualThirst = pet.getThirst();
 
         assertThat(actualThirst).isEqualTo(10);
     }
@@ -52,27 +52,27 @@ class OrganicCatTest {
 
     @Test
     public void shouldTick() {
-        VirtualPet pet = new OrganicCat("Daniel");
+        OrganicPet pet = new OrganicCat("Daniel");
         pet.tick();
-        int actualHunger = ((OrganicPet) pet).getHunger();
+        int actualHunger = pet.getHunger();
 
         assertThat(actualHunger).isEqualTo(20);
     }
 
     @Test
     public void shouldEat() {
-        VirtualPet pet = new OrganicCat("Derryl");
-        ((OrganicPet) pet).eat();
-        int actualHunger = ((OrganicPet) pet).getHunger();
+        OrganicPet pet = new OrganicCat("Derryl");
+        pet.eat();
+        int actualHunger = pet.getHunger();
 
         assertThat(actualHunger).isEqualTo(0);
     }
 
     @Test
     public void shouldDrink() {
-        VirtualPet pet = new OrganicCat("Horos");
-        ((OrganicPet) pet).drink();
-        int actualThirst = ((OrganicPet) pet).getThirst();
+        OrganicPet pet = new OrganicCat("Horos");
+        pet.drink();
+        int actualThirst = pet.getThirst();
 
         assertThat(actualThirst).isEqualTo(0);
     }
@@ -97,22 +97,22 @@ class OrganicCatTest {
 
     @Test
     public void keepHungerFromNegative() {
-        VirtualPet pet = new OrganicCat("Sjors");
-        ((OrganicPet) pet).eat();
-        ((OrganicPet) pet).eat();
-        ((OrganicPet) pet).eat();
-        int actualHunger = ((OrganicPet) pet).getHunger();
+        OrganicPet pet = new OrganicCat("Sjors");
+        pet.eat();
+        pet.eat();
+        pet.eat();
+        int actualHunger = pet.getHunger();
 
         assertThat(actualHunger).isEqualTo(0);
     }
 
     @Test
     public void keepThirstFromNegative() {
-        VirtualPet pet = new OrganicCat("Eemil");
-        ((OrganicPet) pet).drink();
-        ((OrganicPet) pet).drink();
-        ((OrganicPet) pet).drink();
-        int actualThirst = ((OrganicPet) pet).getThirst();
+        OrganicPet pet = new OrganicCat("Eemil");
+        pet.drink();
+        pet.drink();
+        pet.drink();
+        int actualThirst = pet.getThirst();
 
         assertThat(actualThirst).isEqualTo(0);
     }
