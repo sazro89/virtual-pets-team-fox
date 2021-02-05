@@ -25,9 +25,15 @@ public class Application {
 
             System.out.println(userInput);
             switch (userInput) {
+                //----------------------------------------
+                // LIST ALL PETS
+                //----------------------------------------
                 case "1":
                     System.out.println(shelter.printAllPetsInfo());
                     break;
+                //----------------------------------------
+                // ADD NEW PET
+                //----------------------------------------
                 case "2": {
                     System.out.println("What is the pet's name?");
                     String name = inputScanner.nextLine();
@@ -45,14 +51,21 @@ public class Application {
                     }
                     break;
                 }
+                //----------------------------------------
+                // INTERACT WITH PETS
+                //----------------------------------------
                 case "3": {
                     String playChoice;
                     System.out.println("Type the name of the pet you want to interact with");
                     System.out.println(shelter.printPetNames() + "All" + "\n");
                     System.out.println("Cancel");
                     String name = inputScanner.nextLine();
+
+                    // If cancel is input, skip logic, otherwise...
                     if (name.equalsIgnoreCase("Cancel")) {
-                    } else if (name.equalsIgnoreCase("All")) {
+                    }
+                    // Display options for interacting with all pets if all was chosen
+                    else if (name.equalsIgnoreCase("All")) {
                         System.out.println("What do you want to do with all of the pets?");
                         System.out.println("- Play (all)");
                         System.out.println("- Clean (all)");
@@ -77,7 +90,10 @@ public class Application {
                             shelter.walkAllPets();
                         } else if (playChoice.equalsIgnoreCase("Cancel")) {
                         }
-                    } else {
+                    }
+                    // Otherwise, we assume a specific pet was chosen and we look it up
+                    // and present the relevant options for that specific pet
+                    else {
                         System.out.println(shelter.printOnePetsInfo(name));
                         System.out.println("What do you want to do with " + name);
                         System.out.println(shelter.getPetMethods(name));
@@ -101,6 +117,7 @@ public class Application {
                     }
                     break;
                 }
+                // Quit the game
                 case "0":
                     keepPlaying = false;
                     System.out.println("Cya next time~");
